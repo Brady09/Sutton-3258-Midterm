@@ -28,7 +28,7 @@ public class PLAYER : MonoBehaviour
         Vector3 movement = transform.forward * vertical * movementSpeed * Time.deltaTime +
                           transform.right * horizontal * movementSpeed * Time.deltaTime;
 
-        // Apply gravity
+        // Jump
         if (characterController.isGrounded)
         {
             moveDirection.y = 0;
