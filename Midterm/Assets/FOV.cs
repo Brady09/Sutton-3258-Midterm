@@ -76,4 +76,8 @@ public class FOV : MonoBehaviour
         }
         return false;
     }
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 }

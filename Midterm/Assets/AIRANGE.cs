@@ -56,4 +56,8 @@ public class AIRANGE : MonoBehaviour
         currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         SetDestination(waypoints[currentWaypointIndex].position);
     }
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 }

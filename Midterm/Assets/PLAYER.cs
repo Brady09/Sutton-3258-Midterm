@@ -54,6 +54,11 @@ public class PLAYER : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(gunEnd.position, gunEnd.forward, out hit, Mathf.Infinity))
         {
+            AIRANGE enemy = hit.transform.GetComponent<AIRANGE>();
+            if (enemy != null)
+            {
+                enemy.Die();
+            }
             Instantiate(bulletImpactPrefab, hit.point, Quaternion.LookRotation(hit.normal));
         }
         currentAmmo--;
