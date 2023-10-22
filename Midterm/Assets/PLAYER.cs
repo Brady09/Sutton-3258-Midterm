@@ -55,9 +55,14 @@ public class PLAYER : MonoBehaviour
         if (Physics.Raycast(gunEnd.position, gunEnd.forward, out hit, Mathf.Infinity))
         {
             AIRANGE enemy = hit.transform.GetComponent<AIRANGE>();
+            FOV enemy1 = hit.transform.GetComponent <FOV>();
             if (enemy != null)
             {
                 enemy.Die();
+            }
+            if(enemy1 != null)
+            {
+                enemy1.Die();
             }
             Instantiate(bulletImpactPrefab, hit.point, Quaternion.LookRotation(hit.normal));
         }
