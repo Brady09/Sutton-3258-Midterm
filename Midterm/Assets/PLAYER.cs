@@ -22,13 +22,11 @@ public class PLAYER : MonoBehaviour
 
     private void Update()
     {
-        // Player movement
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector3 movement = transform.forward * vertical * movementSpeed * Time.deltaTime +
                           transform.right * horizontal * movementSpeed * Time.deltaTime;
 
-        // Jump
         if (characterController.isGrounded)
         {
             moveDirection.y = 0;
@@ -42,11 +40,9 @@ public class PLAYER : MonoBehaviour
 
         characterController.Move(movement);
 
-        // Player rotation with mouse
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         transform.Rotate(Vector3.up, mouseX);
 
-        // Shooting
         if (Input.GetMouseButtonDown(0) && currentAmmo > 0)
         {
             Shoot();
