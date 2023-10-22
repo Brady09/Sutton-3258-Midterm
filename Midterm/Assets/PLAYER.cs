@@ -4,12 +4,15 @@ public class PLAYER : MonoBehaviour
 {
     CharacterController characterController;
     public float movementSpeed = 5.0f;
+    public float jumpSpeed = 1.0f;
+    public float gravity = 5.0f;
     public float mouseSensitivity = 3.0f;
     public GameObject bulletImpactPrefab;
     public Transform gunEnd;
     private int currentAmmo = 6;
     private int maxAmmo = 6;
     public GameObject ammoRefill;
+    private Vector3 moveDirection = Vector3.zero;
 
     private void Start()
     {
@@ -24,6 +27,19 @@ public class PLAYER : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector3 movement = transform.forward * vertical * movementSpeed * Time.deltaTime +
                           transform.right * horizontal * movementSpeed * Time.deltaTime;
+
+        // Apply gravity
+        if (characterController.isGrounded)
+        {
+            moveDirection.y = 0;
+            if (Input.GetButtonDown("Jump"))
+            {
+                moveDirection.y = jumpSpeed;
+            }
+        }
+        moveDirection.y -= gravity * Time.deltaTime;
+        movement.y = moveDirection.y;
+
         characterController.Move(movement);
 
         // Player rotation with mouse
@@ -34,12 +50,6 @@ public class PLAYER : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && currentAmmo > 0)
         {
             Shoot();
-        }
-
-        // Ammo refill
-        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < maxAmmo)
-        {
-            RefillAmmo();
         }
     }
 

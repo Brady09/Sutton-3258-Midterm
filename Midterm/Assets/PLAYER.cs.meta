@@ -3,7 +3,10 @@ guid: 82d95056fe5fdee45acae84115999323
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bulletImpactPrefab: {fileID: 8842695209833935638, guid: 14b83138751dd5c4c92418c01b839814, type: 3}
+  - gunEnd: {instanceID: 0}
+  - ammoRefill: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
