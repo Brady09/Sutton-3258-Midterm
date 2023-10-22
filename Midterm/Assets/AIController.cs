@@ -136,10 +136,7 @@ public class AIController : MonoBehaviour
         }
     }
 
-    private void OnAnimatorMove()
-    {
 
-    }
 
     public void NextPoint()
     {
