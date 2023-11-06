@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
@@ -22,5 +23,6 @@ public class Score : MonoBehaviour
     public void IncreaseScore(int value)
     {
         score += value;
+        ScoreDisplay.instance.OnScoreUpdated();
     }
 }

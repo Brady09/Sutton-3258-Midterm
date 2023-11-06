@@ -9,7 +9,7 @@ public class PLAYER : MonoBehaviour
     public float mouseSensitivity = 3.0f;
     public GameObject bulletImpactPrefab;
     public Transform gunEnd;
-    private int currentAmmo = 6;
+    public int currentAmmo = 6;
     private int maxAmmo = 6;
     public GameObject ammoRefill;
     private Vector3 moveDirection = Vector3.zero;
